@@ -8,9 +8,10 @@ Hipolito Yrigoyen was president of Argentina twice. During the second term, news
 # Parts
 
 Unihiker https://www.dfrobot.com/product-2691.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP
-SG90 Servo
-Bluetooth Speaker
-3d printed part
+SG90 Servo https://www.dfrobot.com/product-255.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP
+Bluetooth Speaker https://amzn.to/3qvuyzW
+Chatter Teeth https://amzn.to/459OYxo 
+Servo support https://cults3d.com/en/3d-model/gadget/animatronic-mouth-with-sg90-and-a-toy-jaw
 
 # Contact
 
