@@ -22,12 +22,11 @@ model_to_use	="text-davinci-003" # most capable
 pwm0 		= Pin(Pin.D22, Pin.PWM)
 feed_url 	= "https://www.cbsnews.com/latest/rss/main" 
 openai.api_key	= ""
-prompt		= "Rewrite this headline with a joyful tone for an old man with heart disease:"
+prompt		= "Rewrite this news headline with a joyful and optimistic tone:"
 
 def playWav():
 	print('Talking')
 	audio.play('speech.wav')
-
 
 def chatGPT(query):
 	response = openai.Completion.create(
@@ -47,7 +46,7 @@ def add_and_update_feed():
 def download_everything():
 
 	entries = reader.get_entries()
-	entries = list(entries)[:3]
+	entries = list(entries)[:10]
 
 	myCounter=1
 	myY=190
@@ -64,11 +63,28 @@ def download_everything():
 		query=prompt+entry.title
 		(res, usage) = chatGPT(query)
 		print("Joyful headline: "+res)
-		gui.draw_text(x = 120,y=myY,text=str(entry.title)[:40], font_size=8, origin='top' )
+
+		gui.draw_text(x = 120,y=myY,text='News headline:', font_size=8, origin='top' )
 		myY=myY+10
-		gui.draw_text(x = 120,y=myY,text=str(entry.title)[40:80], font_size=8, origin='top' )
-		myY=myY+10
-		gui.draw_text(x = 120,y=myY,text=str(entry.title)[80:120], font_size=8, origin='top' )
+
+		# separate into words
+		words = str(entry.title).split() 
+		# count words
+		howManyWords=len(words)
+
+		myLine=""
+
+		# iterate and prepare 40 char lines
+		for x in words:
+			if len(x)+len(myLine)<40:
+				myLine=myLine+" "+x
+			else:
+				gui.draw_text(x = 120,y=myY,text=myLine, font_size=8, origin='top' )
+				myY=myY+10
+				myLine=x	
+
+		# print remaining
+		gui.draw_text(x = 120,y=myY,text=myLine, font_size=8, origin='top' )		
 		myY=myY+20
 
 		tts = gTTS(res, lang='en-US')
@@ -108,6 +124,7 @@ if __name__ =="__main__":
 
 	os.system('clear')
 	img = gui.draw_image(x=0, y=20, w=240, h=320, image='background.png')
+	gui.draw_text(x = 120,y=190,text='Roni Bandini 8/2023 Argentina', font_size=8, origin='top' )
 	print("Yrigoyen ChatGPT based joyful news animatronic started")
 	print("v1.0 @ronibandini August 2023")
 	print("")
