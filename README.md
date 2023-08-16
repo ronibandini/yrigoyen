@@ -1,5 +1,9 @@
 # Yrigoyen
-Happy news reader automata with DFRobot Unihiker and SG90 servo
+Chattering teeth automata to read headlines with an optimistic tone
+
+# Demo 
+
+https://www.youtube.com/watch?v=s045KdS1rB0
 
 # History
 
